@@ -312,7 +312,7 @@ async def on_startup() -> None:
 @app.post(
     "/grestok-agent/",
     response_model=ChatResponse,
-    summary="Send a chat message to the Grestok root agent",
+    summary="Send a chat message to the Grestok Campus Connect root agent",
 )
 @authorize
 async def grestok_agent_endpoint(payload: ChatRequest, request: Request) -> ChatResponse:
