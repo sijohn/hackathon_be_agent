@@ -5,7 +5,7 @@ from .tools.get_fs_user_profile import get_fs_user_profile
 from .tools.update_profile_from_resume import update_profile_from_resume
 from .sub_agents.profile_update_agent.agent import profile_update_agent
 from .sub_agents.document_analysis_agent.agent import resume_extractor_agent
-from .sub_agents.course_web_search.agent import course_college_websearch_agent
+from .sub_agents.course_college_websearch_agent.agent import course_college_websearch_agent
 
 root_agent = Agent(
     model='gemini-2.5-flash',

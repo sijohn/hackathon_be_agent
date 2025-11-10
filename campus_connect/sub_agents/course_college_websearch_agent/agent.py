@@ -12,6 +12,5 @@ course_college_websearch_agent = Agent(
     model=MODEL,
     name="course_college_websearch_agent",
     instruction=prompt.COURSE_COLLEGE_WEBSEARCH_PROMPT,
-    output_key="course_college_citing",
     tools=[google_search],
 )
