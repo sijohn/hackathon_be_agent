@@ -1,0 +1,28 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia-south1-docker.pkg.dev/grestok-app-dev/cloud-run-source-deploy/grestok-campus-connect-agent:latest', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'asia-south1-docker.pkg.dev/grestok-app-dev/cloud-run-source-deploy/grestok-campus-connect-agent:latest']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'grestok-campus-connect-agent'
+  - '--image'
+  - 'asia-south1-docker.pkg.dev/grestok-app-dev/cloud-run-source-deploy/grestok-campus-connect-agent:latest'
+  - '--region'
+  - 'asia-south1'
+  - '--service-account'
+  - 'grestok-agent-sa@grestok-app-dev.iam.gserviceaccount.com'
+  - '--allow-unauthenticated'
+  - '--platform'
+  - 'managed'
+  - '--memory'
+  - '500Mi'
+  - '--max-instances'
+  - '2'
+  - '--env-vars-file=cloudrun.env'
+  #- '--set-env-vars'
+  #- "API=,GOOGLE_GENAI_USE_VERTEXAI=True,GOOGLE_CLOUD_PROJECT=grestok-app-dev,GOOGLE_CLOUD_LOCATION=global,CORS_ALLOWED_ORIGINS=http://localhost:3000\\,https://grestok-frontend-nextjs--grestok-app-dev.asia-east1.hosted.app/"
+images:
+- asia-south1-docker.pkg.dev/grestok-app-dev/cloud-run-source-deploy/grestok-campus-connect-agent:latest

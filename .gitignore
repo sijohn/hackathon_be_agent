@@ -1,0 +1,13 @@
+.venv/bin/Activate.ps1
+.venv/
+scripts/
+__pycache__/
+*.pyc
+.env
+cloudrun.env
+.env.local
+.env.*.local
+.DS_Store
+frontend/
+RunLocal.md
+
