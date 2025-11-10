@@ -31,7 +31,7 @@ EMAIL_INJECTION_PREFIX = os.getenv(
 )
 CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:3000")
 
-app = FastAPI(title="Grestok Agent Runner")
+app = FastAPI(title="Campus Connect Agent Runner")
 
 allowed_origins = [
     origin.strip()
